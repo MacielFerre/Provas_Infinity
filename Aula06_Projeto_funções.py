@@ -10,7 +10,7 @@ def criar_tarefa():
         tarefa["nome"]= nome
         descricao = input("Digite a descrição.: ")
         tarefa["descricao"] = descricao
-        prioridade = int(input("Digite o valor da prioridade, 10 é a maior prioridade.: "))
+        prioridade = int(input("Digite o valor da prioridade, entre 1 e 10.: "))
         tarefa["prioridade"] = prioridade
         categoria = input("Digite a categoria.: ")
         tarefa["categoria"]=categoria
@@ -38,6 +38,17 @@ def listar_tarefas(var_arg):
             for chave,valor in dicionario.items():
                 print(f'{chave} -> {valor}')
             print('\n')
+    
+    elif var_arg == 2:
+        opcao_prioridade = int(input("\nDigite o número da prioridade.: ")) 
+        if opcao_prioridade>=1 or opcao_prioridade<=10:
+            for dicionario in lista_tarefas:
+                if opcao_prioridade == dicionario['prioridade']:
+                    print(f'\nLista Tarefas com prioridade.: {opcao_prioridade}')
+                    print(dicionario['nome'])
+        elif opcao_prioridade<=0 or opcao_prioridade>=11:
+            print("Valor de Prioridade Incorreto!")      
+        
     
 def alterar_status():
     tarefa_alt = input("Qual tarefa você que alterar o status?.: ")
