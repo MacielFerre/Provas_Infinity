@@ -47,8 +47,30 @@ def listar_tarefas(var_arg):
                     print(f'\nLista Tarefas com prioridade.: {opcao_prioridade}')
                     print(dicionario['nome'])
         elif opcao_prioridade<=0 or opcao_prioridade>=11:
-            print("Valor de Prioridade Incorreto!")      
+            print("Valor de Prioridade Incorreto!")
+    
+    elif var_arg == 3:
+        conjunto_categoria = set()
+        print("Lista de Categorias Cadastradas:")
+        for lista_categoria in lista_tarefas:
+            conjunto_categoria.add(lista_categoria['categoria'])
+        for i in conjunto_categoria:
+            print(i)    
+        opcao_categoria = input("Digite a opção de Categoria.: ")
+        categoria = False
         
+        for dicionario in lista_tarefas:
+            if opcao_categoria == dicionario['categoria']:
+                print('Tarefa.: ',dicionario['nome'], '-> Categoria.: ', dicionario['categoria'] )
+                categoria = True
+        if categoria == False:
+            print("Você digitou algum caracter incorreto/inválido para o nome da Categoria")
+    else:
+        print("Você digitou opção incorreta")
+                
+            
+        
+             
     
 def alterar_status():
     tarefa_alt = input("Qual tarefa você que alterar o status?.: ")
